@@ -1,0 +1,93 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div class="row" th:fragment="createProject">
+    <h3>
+        Create New Project
+    </h3>
+    <hr/>
+    <form th:action="@{/projects/create}" th:object="${projectDto}" id="create-project" method="post">
+        <div class="row form-group">
+            <div class="col-md-3">
+                <label for="project-name" class="control-label"> Name* </label>
+            </div>
+            <div class="col-md-7">
+                <input class="form-control" id="project-name" th:field="*{name}" maxlength="50"
+                       name="project-name" placeholder="Enter project name" type="text"/>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-3">
+                <label for="project-description" class="control-label">Description*</label>
+            </div>
+            <div class="col-md-7">
+                <textarea class="form-control" id="project-description" th:field="*{description}"
+                          form="create-project" placeholder="Describe the project in a few lines."></textarea>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-3">
+                <label for="start-date" class="control-label">Start Date:</label>
+            </div>
+            <div class="col-md-7">
+                <div class="input-group registration-date-time">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"
+                                                          aria-hidden="true"></span></span>
+                    <input class="form-control" th:field="*{startDate}" id="start-date" type="date"/>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-3">
+                <label for="end-date" class="control-label">End Date:</label>
+            </div>
+            <div class="col-md-7">
+                <div class="input-group registration-date-time">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"
+                                                          aria-hidden="true"></span></span>
+                    <input class="form-control" th:field="*{endDate}" id="end-date" type="date"/>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-3">
+                <label for="dailyMeetings" class="control-label">Daily meetings occur at:</label>
+            </div>
+            <div class="col-md-7">
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-time"
+                                                          aria-hidden="true"></span></span>
+                    <input class="form-control" th:field="*{dailyMeetings}" id="dailyMeetings" type="time"/>
+                </div>
+            </div>
+        </div>
+        <h4> Project Members </h4>
+        <hr/>
+        <div class="row">
+            <div class="col-md-5" style="font-weight: bold">Member</div>
+            <div class="col-md-5" style="font-weight: bold">Role</div>
+        </div>
+        <div class="members">
+            <div class="row member">
+                <div class="col-md-5 member-email">
+                    <div class="input-group">
+                        <input type="text" th:field="*{projectMemberList[0].user}" class="form-control" placeholder="User"/>
+                        <span class="input-group-addon remove-member">
+    				        <span class="glyphicon glyphicon-remove"></span></span>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <select th:field="*{projectMemberList[0].role}" class="form-control">
+                        <option value="Member" selected="selected">Select Role</option>
+                        <option value="Master">Scrum Master</option>
+                        <option value="Developer">Developer</option>
+                        <option value="QA">QA</option>
+                        <option value="DevOps">DevOps</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <input type="submit" name="Create" value="Create" class="btn btn-primary btn-info"
+               id="create-project-button"/>
+    </form>
+</div>
+</html>

@@ -1,0 +1,233 @@
+html, body, .custom-container {
+    height: 100%;
+}
+
+/*
+    Text fields
+*/
+.member {
+    margin-bottom: 15px;
+}
+
+
+.member:last-child .member-email .remove-member {
+    display: none;
+}
+
+div.member-email span.remove-member {
+    cursor: pointer;
+}
+
+.custom-container {
+    width: 100%;
+    margin-top: -50px;
+    padding: 50px 0 0 0; /*set left/right padding according to needs*/
+    box-sizing: border-box;
+}
+
+.no-float {
+    height: 100%;
+}
+
+.custom-border {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    border-top: 20px solid #e1e1e1;
+    border-bottom: 1px solid #b0b0b0;
+}
+
+/* Navbar */
+.scrumtool-nav .navbar-nav > .active > a,
+.scrumtool-nav .navbar-nav > .active > a:hover,
+.scrumtool-nav .navbar-nav > .active > a:focus {
+    background-color: rgb(0, 98, 90);
+    color: white;
+    font-weight: bold;
+}
+
+.scrumtool-nav .navbar-nav > li > a {
+    font-size: 15px;
+    color: white;
+}
+
+.scrumtool-nav {
+    margin-bottom: 0px;
+    background-color: rgb(0, 166, 153);
+    border-bottom: 4px solid rgb(0, 98, 90);
+    color: white;
+    z-index: 1;
+    opacity: 0.9;
+}
+
+.scrumtool-nav .navbar-nav > li > a:hover,
+.scrumtool-nav .navbar-nav > li > a:focus {
+    background-color: rgb(0, 98, 90);
+}
+
+.navbar-header > a {
+    font-family: 'Ubuntu Condensed', sans-serif;
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+    padding-right: 30px;
+}
+
+.navbar-header > a:hover {
+    text-decoration: none;
+    color: rgb(0, 98, 90);
+}
+
+/* Sidebar */
+.navigation-col {
+    padding-left: 0px;
+    padding-right: 0px;
+    background-color: #f7f7f7;
+    border-right: 10px solid #ccc;
+}
+
+nav.sidebar, .main {
+    -webkit-transition: margin 200ms ease-out;
+    -moz-transition: margin 200ms ease-out;
+    -o-transition: margin 200ms ease-out;
+    transition: margin 200ms ease-out;
+}
+
+@media (min-width: 765px) {
+    .no-float {
+        height: auto;
+    }
+
+    nav.sidebar:hover + .main {
+        margin-left: 200px;
+    }
+
+    nav.sidebar.navbar.sidebar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+        margin-left: 0px;
+    }
+
+    nav.sidebar .navbar-brand, nav.sidebar .navbar-header {
+        text-align: center;
+        width: 100%;
+        margin-left: 0px;
+    }
+
+    nav.sidebar a {
+        padding-right: 13px;
+    }
+
+    nav.sidebar .navbar-nav > li {
+        border-bottom: 1px #e5e5e5 solid;
+    }
+
+    nav.sidebar .navbar-nav .open .dropdown-menu {
+        position: static;
+        float: none;
+        width: auto;
+        margin-top: 0;
+        background-color: transparent;
+        border: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+    nav.sidebar .navbar-collapse, nav.sidebar .container-fluid {
+        padding: 0 0px 0 0px;
+    }
+
+    .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+        color: #777;
+    }
+
+    nav.sidebar {
+        width: 100%;
+        height: 100%;
+        float: left;
+        margin-bottom: 0px;
+        padding-left: 0px;
+    }
+
+    nav.sidebar li {
+        width: 100%;
+    }
+
+    .forAnimate {
+        opacity: 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .no-float {
+        height: 100%;
+    }
+}
+
+@media (min-width: 1330px) {
+    .no-float {
+        height: 100%;
+    }
+
+    .main {
+        width: calc(100% - 200px);
+        margin-left: 200px;
+    }
+
+    nav.sidebar {
+        float: left;
+    }
+
+    nav.sidebar .forAnimate {
+        opacity: 1;
+    }
+}
+
+nav.sidebar .navbar-nav .open .dropdown-menu > li > a:hover, nav.sidebar .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #CCC;
+    background-color: transparent;
+}
+
+nav:hover .forAnimate {
+    opacity: 1;
+}
+
+section {
+    padding-left: 15px;
+}
+
+.my-error-class {
+    color: #e10000;
+    font-weight: normal;
+}
+
+.form-error {
+    color: #e10000;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+
+/*Background changer*/
+#wrap {
+    position: fixed;;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    background-color: black
+}
+
+#wrap img.bgfade {
+    position: absolute;
+    top: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    z-index: -1
+}
+
+.main-font {
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-weight: bolder;
+}
+

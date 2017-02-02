@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="loginAndRegisterForm">
+    <div style="width: 80%; margin:0 auto" class="panel panel-login">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <a href="#" class="active" id="login-form-link">Sign In</a>
+                </div>
+                <div class="col-lg-6 col-md-6 col-md-6 col-xs-6">
+                    <a href="#" id="register-form-link">Sign Up</a>
+                </div>
+            </div>
+            <hr/>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <form th:action="@{/users/login}" th:object="${loginDto}" method="post" id="loginForm"
+                          style="display: block;">
+                        <div class="form-group">
+                            <input type="email" id="email" th:field="*{email}" class="form-control"
+                                   placeholder="Email"/>
+                            <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Name Error</p>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="password" id="password" th:field="*{password}" class="form-control"
+                                   placeholder="Password"/>
+                            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Name Error</p>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-6 col-sm-offset-3">
+                                    <input type="submit" name="login-submit" id="login-submit"
+                                           class="form-control btn btn-login" value="Login"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="text-center">
+                                        <a href="#" id="recover-form-link">Forgot Password?</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <form th:action="@{/users/register}" th:object="${registrationDto}" method="post"
+                          id="registerForm"
+                          style="display:none;">
+                        <div class="row form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-right: 2px">
+                                <input type="text" th:field="*{firstName}" id="firstName"
+                                       placeholder="First name"
+                                       class="form-control input-md" required="required"/>
+                            </div>
+                            <div class="col-md-6 col-md-6 col-sm-6 col-xs-6" style="padding-left: 2px">
+                                <input type="text" th:field="*{lastName}" id="lastName" placeholder="Last name"
+                                       class="form-control input-md" required="required"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" th:field="*{email}" id="email" required="required"
+                                   class="form-control" placeholder="Email" value=""/>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="password" th:field="*{password}" id="regPassword" name="regPassword"
+                                   required="required" class="form-control" placeholder="Password"/>
+                        </div>
+
+                        <div class="form-group">
+                        </div>
+                        <input type="password" th:field="*{passwordConfirm}" id="passwordConfirm"
+                               name="passwordConfirm" class="form-control" placeholder="Confirm password"/>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-6 col-sm-offset-3">
+                                    <input type="submit" name="register-submit" id="register-submit"
+                                           class="form-control btn btn-register" value="Register"/>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+
+                    <form id="recoverForm" action="recover" method="post" style="display: none;" role="form"
+                          autocomplete="off">
+                        <div class="form-group">
+                            <p style="font-size: 20px; font-weight: bold;" class="text-center">
+                                Password Recovery</p>
+                            <p style="font-size: 20px" class="text-center">Please enter your
+                                email address.</p>
+                            <input type="email" name="email" id="email" class="form-control"
+                                   placeholder="Email Address" value="" autocomplete="off" required="required"/>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
+                                    <input type="submit" name="recover-submit" id="recover-submit"
+                                           class="form-control btn btn-warning"
+                                           value="Recover Account"/>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

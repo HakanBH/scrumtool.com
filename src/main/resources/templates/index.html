@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ScrumTool.com</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/custom.css" rel="stylesheet"/>
+    <link href="css/registrationForm.css" rel="stylesheet"/>
+</head>
+<body>
+<div id="wrap">
+    <img class="bgfade" src="images/backgrounds/background-2.jpg"/>
+    <img class="bgfade" src="images/backgrounds/background-1.jpg"/>
+    <img class="bgfade" src="images/backgrounds/background-3.jpg"/>
+    <img class="bgfade" src="images/backgrounds/background-4.jpg"/>
+    <img class="bgfade" src="images/backgrounds/background-5.jpg"/>
+</div>
+
+<div style="padding-bottom:10%" th:include="fragments/navbar :: navbar"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 main-font">
+            <h1>Welcome to ScrumTool.bg</h1>
+            <h3>Here you can easily manage you projects following the Scrum process.
+                Using ScrumTool makes com nage backlogs, plan with scrum poker and many more
+                features. </h3>
+        </div>
+
+        <div class="col-md-6">
+            <div th:include="fragments/loginAndRegisterForm :: loginAndRegisterForm"></div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/bg-changer.js"></script>
+
+</body>
+</html>
