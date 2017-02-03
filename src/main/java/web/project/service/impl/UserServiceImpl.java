@@ -3,6 +3,7 @@ package web.project.service.impl;
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import web.project.dto.LoginDto;
 import web.project.dto.RegistrationDto;
@@ -18,21 +19,26 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
+    private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
     @Override
-    public void register(RegistrationDto dto) throws ExistingEmailException {
+    public User register(RegistrationDto dto) throws ExistingEmailException {
         try {
-            userRepository.save(new User(dto));
+            User user = new User(dto);
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            return userRepository.save(user);
         } catch (DataAccessException e) {
             if (e.getCause() instanceof ConstraintViolationException) {
                 throw new ExistingEmailException();
             }
         }
+        return null;
     }
 
     @Override
     public User login(LoginDto dto) throws WrongEmailOrPasswordException {
-        User user = userRepository.findByEmailAndPassword(dto.getEmail(), dto.getPassword());
-        if (user != null) {
+        User user = userRepository.findByEmail(dto.getEmail());
+        if (user != null && passwordEncoder.matches(dto.getPassword(), user.getPassword())) {
             return user;
         } else {
             throw new WrongEmailOrPasswordException();

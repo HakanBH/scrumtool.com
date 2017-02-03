@@ -12,11 +12,12 @@ import java.util.Set;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "user")
+@Entity(name = "users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "user_id")
     private Integer id;
 
     @Column(unique = true, nullable = false)

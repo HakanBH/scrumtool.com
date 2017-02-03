@@ -70,13 +70,13 @@
             <div class="row member">
                 <div class="col-md-5 member-email">
                     <div class="input-group">
-                        <input type="text" th:field="*{projectMemberList[0].user}" class="form-control" placeholder="User"/>
+                        <input type="text" th:field="*{projectMembers[0].user}" class="form-control" placeholder="User"/>
                         <span class="input-group-addon remove-member">
     				        <span class="glyphicon glyphicon-remove"></span></span>
                     </div>
                 </div>
                 <div class="col-md-5">
-                    <select th:field="*{projectMemberList[0].role}" class="form-control">
+                    <select th:field="*{projectMembers[0].role}" class="form-control">
                         <option value="Member" selected="selected">Select Role</option>
                         <option value="Master">Scrum Master</option>
                         <option value="Developer">Developer</option>

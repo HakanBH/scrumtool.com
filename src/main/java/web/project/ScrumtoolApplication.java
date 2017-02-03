@@ -10,6 +10,7 @@ import web.project.dto.RegistrationDto;
 import web.project.model.Project;
 import web.project.model.ProjectMember;
 import web.project.model.User;
+import web.project.repository.ProjectMemberRepository;
 import web.project.repository.ProjectRepository;
 import web.project.repository.UserRepository;
 
@@ -20,12 +21,13 @@ import java.util.HashSet;
 
 @SpringBootApplication
 public class ScrumtoolApplication implements CommandLineRunner {
-    private static final Logger logger = LoggerFactory.getLogger(ScrumtoolApplication.class);
-
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private ProjectRepository projectRepository;
+//
+//    @Autowired
+//    private UserRepository userRepository;
+//    @Autowired
+//    private ProjectRepository projectRepository;
+//    @Autowired
+//    private ProjectMemberRepository projectMemberRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(ScrumtoolApplication.class, args);
@@ -34,20 +36,24 @@ public class ScrumtoolApplication implements CommandLineRunner {
     @Override
     @Transactional
     public void run(String... strings) throws Exception {
-//        // save a couple of books
-//        User hakan = new User(new RegistrationDto("hakan@gmail.com", "Hakan", "Hyusein", "pass", "pass"));
-//        User deniz = new User(new RegistrationDto("deniz@gmail.com", "Deniz", "Hyuseinov", "pass", "pass"));
+//        User hakan = new User(new RegistrationDto("hakan1@gmail.com", "Hakan", "Hyusein", "pass", "pass"));
+//        User deniz = new User(new RegistrationDto("deniz1@gmail.com", "Deniz", "Hyuseinov", "pass", "pass"));
 //
-//        Project project = new Project(null, "Ticketmaster", "This is description", new Time(8, 30, 0), new Date(2016, 5, 5), new Date(2016, 5, 5), null);
+//        Project project = new Project(null, "Ticketmaster", "This is description", "8:30", new Date(2016, 5, 5), new Date(2016, 5, 5), null);
+//        userRepository.save(hakan);
+//        userRepository.save(deniz);
+//        projectRepository.save(project);
 //
-//        ProjectMember member1 = new ProjectMember("Scrum Master", project, hakan);
-//        ProjectMember member2 = new ProjectMember("Developer", project, deniz);
+//        ProjectMember member1 = new ProjectMember(null, "Scrum Master", project, hakan);
+//        ProjectMember member2 = new ProjectMember(null, "Developer", project, deniz);
 //
 //        project.setMembers(new HashSet<ProjectMember>(){{
 //            add(member1);
 //            add(member2);
 //        }});
-//        userRepository.save(hakan);
-//        projectRepository.save(project);
+//
+//        projectMemberRepository.save(member1);
+//        projectMemberRepository.save(member2);
+
     }
 }

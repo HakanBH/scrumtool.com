@@ -29,14 +29,14 @@ public class ProjectDto {
 
     private String dailyMeetings;
 
-    private List<ProjectMember> projectMemberList = new ArrayList<>(Arrays.asList(new ProjectMember("User","Role")));
+    private List<ProjectMember> projectMembers = new ArrayList<>(Arrays.asList(new ProjectMember("User","Role")));
 
     @Getter
     @Setter
     @ToString
     @NoArgsConstructor
     @AllArgsConstructor
-    private static class ProjectMember {
+    public class ProjectMember {
         private String user;
         private String role;
     }

@@ -1,7 +1,13 @@
 package web.project.service;
 
-/**
- * Created by User on 28.1.2017 г..
- */
+import web.project.dto.ProjectDto;
+import web.project.model.Project;
+import web.project.model.User;
+
+import java.util.List;
+
 public interface ProjectService {
+    void createProject(ProjectDto projectDto);
+
+    List<Project> userProjects(User user);
 }
