@@ -1,9 +1,58 @@
+$(document).ready(function () {
+    var navCol = $(".navigation-col");
+    var container = $(".custom-container");
+    var projectList = $('#project-list');
+
+    $.get("/fragments/dailyAlert.html", function (data) {
+        container.append(data);
+    });
+
+    navCol.load("/fragments/sidebar.html", function () {
+        $.getScript("/js/new.js");
+    });
+
+    $.getJSON("http://localhost:8080/projects", function (data) {
+        if (data.length > 0) {
+            projectList.append('<li class="divider"></li>');
+        }
+        $.each(data, function (key, value) {
+            var projectUrl = "/projects/" + value.id;
+            var listItem = '<li><a href=' + projectUrl + '>' + value.name + '</a></li>';
+            projectList.append(listItem);
+
+            var dailyMeeting = value.dailyMeetings;
+            console.log("Daily Meeting: " + dailyMeeting);
+            var a = dailyMeeting.split(":");
+            var dailyHour = a[0];
+            var dailyMinutes = a[1];
+            var dailyTime = new Date();
+
+            dailyTime.setHours(dailyHour);
+            dailyTime.setMinutes(dailyMinutes);
+            dailyTime.setSeconds(0);
+            var timeToDaily = dailyTime - Date.now();
+
+            var seconds = (timeToDaily / (1000)) | 0;
+            console.log("Seconds to daily : " + seconds);
+            console.log("Milis : " + timeToDaily);
+
+            if (timeToDaily > 0) {
+                var timeout = setTimeout(function () {
+                    $('#\\#myModal').modal('show');
+                }, timeToDaily);
+            }
+            console.log("------------------");
+        });
+    });
+});
+
+
 /*
-    Login, register and recover form changer
+ Login, register and recover form changer
  */
 
-$(function() {
-    $('#register-form-link').click(function(e) {
+$(function () {
+    $('#register-form-link').click(function (e) {
         $("#registerForm").delay(100).fadeIn(100);
         $("#loginForm").fadeOut(100);
         $("#recoverForm").fadeOut(100);
@@ -11,7 +60,7 @@ $(function() {
         $(this).addClass('active');
         e.preventDefault();
     });
-    $('#login-form-link').click(function(e) {
+    $('#login-form-link').click(function (e) {
         $("#loginForm").delay(100).fadeIn(100);
         $("#registerForm").fadeOut(100);
         $("#recoverForm").fadeOut(100);
@@ -20,7 +69,7 @@ $(function() {
         e.preventDefault();
     });
 
-    $('#recover-form-link').click(function(e) {
+    $('#recover-form-link').click(function (e) {
         $("#recoverForm").delay(100).fadeIn(100);
         $("#loginForm").fadeOut(100);
         e.preventDefault();
@@ -28,43 +77,42 @@ $(function() {
 });
 
 /*
-    Background changer
+ Background changer
  */
-$(window).load(function() {
+$(window).load(function () {
 
     $('img.bgfade').hide();
     var dg_H = $(window).height();
     var dg_W = $(window).width();
     $('#wrap').css({
-        'height' : dg_H,
-        'width' : dg_W
+        'height': dg_H,
+        'width': dg_W
     });
     function anim() {
         $("#wrap img.bgfade").first().appendTo('#wrap').fadeOut(1500);
         $("#wrap img").first().fadeIn(1500);
         setTimeout(anim, 10000);
     }
+
     anim();
 })
 
-$(window).resize(function() {
+$(window).resize(function () {
     window.location.href = window.location.href
 })
 
 /*
-    Add members form expanding
+ Add members form expanding
  */
 
 $(function () {
     $(document).on('focus', 'div.member:last-child div.member-email input', function () {
-
         var sInputGroupHtml = $(this).parent().parent().parent().html();
         var sInputGroupClasses = $(this).parent().parent().parent().attr('class');
         $(this).parent().parent().parent().parent().append('<div class="' + sInputGroupClasses + '">' + sInputGroupHtml + '</div>');
-
     });
 
-    $(document).on('click', 'div.member div.member-email .remove-member', function(){
+    $(document).on('click', 'div.member div.member-email .remove-member', function () {
         $(this).parent().parent().parent().remove();
     });
 });

@@ -2,6 +2,16 @@ html, body, .custom-container {
     height: 100%;
 }
 
+.main-container {
+    padding-left: 30px;
+}
+
+.project-title {
+    margin-top: 30px;
+    font-size: 17px;
+    color: #696969;
+}
+
 /*
     Text fields
 */
@@ -79,7 +89,7 @@ div.member-email span.remove-member {
 }
 
 /* Sidebar */
-nav.sidebar{
+nav.sidebar {
     border-radius: 0px;
     -webkit-transition: margin 200ms ease-out;
     -moz-transition: margin 200ms ease-out;
@@ -87,27 +97,26 @@ nav.sidebar{
     transition: margin 200ms ease-out;
 }
 
-
 @media (min-width: 765px) {
-    nav.sidebar:hover{
+    nav.sidebar:hover {
         margin-left: 200px;
     }
 
-    nav.sidebar.navbar.sidebar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+    nav.sidebar.navbar.sidebar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
         margin-left: 0px;
     }
 
-    nav.sidebar .navbar-brand, nav.sidebar .navbar-header{
+    nav.sidebar .navbar-brand, nav.sidebar .navbar-header {
         text-align: center;
         width: 100%;
         margin-left: 0px;
     }
 
-    nav.sidebar a{
+    nav.sidebar a {
         padding-right: 13px;
     }
 
-    nav.sidebar .navbar-nav > li{
+    nav.sidebar .navbar-nav > li {
         border-bottom: 1px #e5e5e5 solid;
     }
 
@@ -122,15 +131,15 @@ nav.sidebar{
         box-shadow: none;
     }
 
-    nav.sidebar .navbar-collapse, nav.sidebar .container-fluid{
+    nav.sidebar .navbar-collapse, nav.sidebar .container-fluid {
         padding: 0 0px 0 0px;
     }
 
-    .navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
+    .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
         color: #777;
     }
 
-    nav.sidebar{
+    nav.sidebar {
         width: 200px;
         height: 100%;
         margin-left: -160px;
@@ -142,43 +151,59 @@ nav.sidebar{
         width: 100%;
     }
 
-    nav.sidebar:hover{
+    nav.sidebar:hover {
         margin-left: 0px;
     }
 
-    .forAnimate{
+    .forAnimate {
         opacity: 0;
     }
 }
 
-@media (min-width: 1330px) {
-    .navbar.sidebar{
+@media (min-width: 992px) {
+    .navbar.sidebar {
         border: 0px;
     }
 
-    nav.sidebar{
-        border-right:10px solid #9d9d9d !important;
+    nav.sidebar {
+        border-right: 10px solid #9d9d9d !important;
         margin-left: 0px;
         float: left;
     }
 
-    nav.sidebar .forAnimate{
+    nav.sidebar .forAnimate {
         opacity: 1;
     }
 }
 
-nav.sidebar .navbar-nav .open .dropdown-menu>li>a:hover, nav.sidebar .navbar-nav .open .dropdown-menu>li>a:focus {
+@media (min-width: 1330px) {
+    .navbar.sidebar {
+        border: 0px;
+    }
+
+    nav.sidebar {
+        border-right: 10px solid #9d9d9d !important;
+        margin-left: 0px;
+        float: left;
+    }
+
+    nav.sidebar .forAnimate {
+        opacity: 1;
+    }
+}
+
+nav.sidebar .navbar-nav .open .dropdown-menu > li > a:hover, nav.sidebar .navbar-nav .open .dropdown-menu > li > a:focus {
     color: #CCC;
     background-color: transparent;
 }
 
-nav:hover .forAnimate{
+nav:hover .forAnimate {
     opacity: 1;
 }
-section{
+
+section {
     padding-left: 15px;
 }
-
 
 /*
     Validation errors

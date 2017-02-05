@@ -1,24 +1,22 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 
-<div th:fragment="dailyAlert">
-    <div class="modal fade" id="#myModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">×</span>
-                    </button>
-                    <div>
-                        <span style="font-size:90px;color:#46b8da;">ⓘ</span>
-                        <h3 style=" margin-top: 0px;">DHL-CORR Daily Meeting</h3>
-                        <h4> Daily meeting for project ------ has begun.</h4>
-                        <h4>Would you like to join ?</h4>
-                    </div>
+<div class="modal fade" id="#myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span>
+                </button>
+                <div>
+                    <span style="font-size:90px;color:#46b8da;">ⓘ</span>
+                    <h3 style=" margin-top: 0px;">DHL-CORR Daily Meeting</h3>
+                    <h4> Daily meeting for project ------ has begun.</h4>
+                    <h4>Would you like to join ?</h4>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-info">Accept</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-info">Accept</button>
             </div>
         </div>
     </div>
