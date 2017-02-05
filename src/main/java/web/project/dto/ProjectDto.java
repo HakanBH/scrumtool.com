@@ -1,24 +1,28 @@
 package web.project.dto;
 
 import lombok.*;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by User on 1.2.2017 г..
- */
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProjectDto {
+
+    @NotNull
+    @Length(min = 1, max = 30)
     private String name;
 
+    @Length(max = 1000)
     private String description;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -29,7 +33,7 @@ public class ProjectDto {
 
     private String dailyMeetings;
 
-    private List<ProjectMember> projectMembers = new ArrayList<>(Arrays.asList(new ProjectMember("User","Role")));
+    private List<ProjectMember> projectMembers = new ArrayList<>(Arrays.asList(new ProjectMember("User", "Role")));
 
     @Getter
     @Setter

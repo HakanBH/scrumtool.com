@@ -1,3 +1,7 @@
+/*
+ Login & Register form validation
+ */
+
 jQuery.validator.addMethod("lettersonly", function(value, element) {
     return this.optional(element) || /^[a-z]+$/i.test(value);
 }, "Names must contain letters only.");
@@ -35,30 +39,4 @@ $(document).ready(function() {
             }
         }
     });
-});
-
-$(function() {
-    $('#register-form-link').click(function(e) {
-        $("#registerForm").delay(100).fadeIn(100);
-        $("#loginForm").fadeOut(100);
-        $("#recoverForm").fadeOut(100);
-        $('#login-form-link').removeClass('active');
-        $(this).addClass('active');
-        e.preventDefault();
-    });
-    $('#login-form-link').click(function(e) {
-        $("#loginForm").delay(100).fadeIn(100);
-        $("#registerForm").fadeOut(100);
-        $("#recoverForm").fadeOut(100);
-        $('#register-form-link').removeClass('active');
-        $(this).addClass('active');
-        e.preventDefault();
-    });
-
-    $('#recover-form-link').click(function(e) {
-        $("#recoverForm").delay(100).fadeIn(100);
-        $("#loginForm").fadeOut(100);
-        e.preventDefault();
-    });
-
 });

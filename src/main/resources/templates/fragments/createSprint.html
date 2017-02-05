@@ -1,0 +1,11 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div class="row" th:fragment="createSprint">
+    <h3>New Sprint</h3>
+    <hr/>
+    <form th:action="@{/sprints/create}" th:object="${sprintDto}" id="create-sprinte" method="post">
+
+
+    </form>
+</div>
+</html>

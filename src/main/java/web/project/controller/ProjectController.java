@@ -28,9 +28,15 @@ public class ProjectController {
         return "main";
     }
 
+    @GetMapping("/{id}")
+    @ResponseBody
+    public Project getById(@PathVariable("id") Integer id) {
+        return projectService.findById(id);
+    }
+
     @GetMapping
     @ResponseBody
-    public List<Project> dailyMeetings(HttpServletRequest request){
+    public List<Project> getProjects(HttpServletRequest request){
         User user = (User) request.getSession().getAttribute("loggedUser");
         return projectService.userProjects(user);
     }

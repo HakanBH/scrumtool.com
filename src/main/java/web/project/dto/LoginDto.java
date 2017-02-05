@@ -1,8 +1,10 @@
 package web.project.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.validator.constraints.Email;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;

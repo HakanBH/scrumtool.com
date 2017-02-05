@@ -10,4 +10,6 @@ public interface ProjectService {
     void createProject(ProjectDto projectDto);
 
     List<Project> userProjects(User user);
+
+    Project findById(Integer id);
 }

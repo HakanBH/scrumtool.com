@@ -57,4 +57,8 @@ public class ProjectServiceImpl implements ProjectService {
         }
         return projects;
     }
+
+    public Project findById(Integer id){
+        return projectRepository.findOne(id);
+    }
 }
