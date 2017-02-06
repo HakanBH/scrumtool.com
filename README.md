@@ -17,3 +17,4 @@ Scrumtool is a website for managing Scrum projects.
 * Clone/Download the project from this repository.
 * Go to the main directory of the project.
 * Run the `mvn spring-boot:run`
+* The application should be available at url `localhost:8080`
