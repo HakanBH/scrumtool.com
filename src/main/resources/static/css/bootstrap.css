@@ -4082,9 +4082,13 @@ fieldset[disabled] .btn-info.focus {
 }
 
 .btn-warning {
+    width: 100%;
+    border-radius: 0px;
+    border: 0px;
+    text-shadow: 1px 1px 0 #805917;
+    border-bottom: 4px solid #d07a00;
     color: #fff;
     background-color: #f0ad4e;
-    border-color: #eea236;
 }
 
 .btn-warning:focus,

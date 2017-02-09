@@ -23,9 +23,11 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a href="#">
-                        <th:block th:unless="${session == null}">
-                            <span th:text="${session.loggedUser.getFirstName()}"></span>
-                            <span th:text="${session.loggedUser.getLastName()}"></span>
+                        <th:block th:if="${session != null}">
+                            <th:block th:if="${session.loggedUser != null}">
+                                <span th:text="${session.loggedUser.getFirstName()}"></span>
+                                <span th:text="${session.loggedUser.getLastName()}"></span>
+                            </th:block>
                         </th:block>
                         <span class="glyphicon glyphicon-user"></span></a></li>
                     <li class="dropdown">

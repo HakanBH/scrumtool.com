@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Error</title>
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/css/custom.css"/>
+</head>
+<body>
+<div style="padding-bottom:10%" th:include="fragments/navbarLogged :: navbarLogged"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3" style="padding: 20px 0 0 100px;">
+            <span style="color:#da1900; font-size:100px" class="glyphicon glyphicon-remove-circle"></span>
+        </div>
+        <div class="col-md-8">
+            <div th:if="${errorMessage} == null">
+                <h2> Something went wrong. Please try again later. </h2>
+            </div>
+            <h2 th:text="${errorMessage}"></h2>
+        </div>
+    </div>
+</div>
+<script href="/js/bootstrap.js"></script>
+</body>
+</html>

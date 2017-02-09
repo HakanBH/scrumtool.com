@@ -1,3 +1,5 @@
+
+
 <nav class="navbar navbar-default sidebar" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -12,21 +14,35 @@
         <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="#">Backlog<span
+                    <a href="#" id="sprint-backlog">Backlog<span
                             class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a>
                 </li>
                 <li>
-                    <a href="#">Board<span class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a>
+                    <a href="#" id="sprint-board">Board
+                        <span class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sprints<span
                             class="caret"></span><span
                             class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
-                    <ul class="dropdown-menu forAnimate" role="menu">
-                        <li><a href="#" id="create-sprint">New Sprint</a></li>
+                    <ul class="dropdown-menu forAnimate" id="project-sprints" role="menu">
+                        <li><a href="#" id="create-sprint-link">New Sprint</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+<script>
+    var path = window.location.pathname;
+    var pathVariables = path.split("/");
+    var projectPath = "/" + pathVariables[1] + "/" + pathVariables[2];
+
+    $('#create-sprint-link').click(function (e) {
+        e.preventDefault();
+        window.location = projectPath + "/sprints/create";
+    });
+
+    $("#sprint-backlog").attr("href", projectPath + "/backlog");
+    $("#sprint-board").attr("href", projectPath + "/board");
+</script>

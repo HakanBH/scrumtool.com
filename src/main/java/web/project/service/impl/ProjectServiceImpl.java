@@ -61,4 +61,12 @@ public class ProjectServiceImpl implements ProjectService {
     public Project findById(Integer id){
         return projectRepository.findOne(id);
     }
+
+    public boolean isMember(User user, Integer projectId){
+        if(projectRepository.findOne(projectId) == null){
+            throw new IllegalArgumentException();
+        } else {
+            return projectMemberRepository.findByUserIdAndProjectId(user.getId(), projectId) != null;
+        }
+    }
 }

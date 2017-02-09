@@ -5,13 +5,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="/css/bootstrap.css" rel="stylesheet"/>
     <link href="/css/custom.css" rel="stylesheet"/>
-    <link href="/css/registrationForm.css" rel="stylesheet"/>
 </head>
 <body>
 
 <div th:include="fragments/navbarLogged :: navbarLogged "></div>
-<hr class="custom-border"/>
 <div class="custom-container">
+    <hr class="custom-border"/>
     <div class="row" style="height:100%">
         <div class="navigation-col no-float col-md-2 col-lg-2">
         </div>
@@ -23,7 +22,20 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="/js/bootstrap.js"></script>
-<script src="/js/custom.js"></script>
+<script src="/js/main.js"></script>
+<script>
+    $(function () {
+        $(document).on('focus', 'div.member:last-child div.member-email input', function () {
+            var sInputGroupHtml = $(this).parent().parent().parent().html();
+            var sInputGroupClasses = $(this).parent().parent().parent().attr('class');
+            $(this).parent().parent().parent().parent().append('<div class="' + sInputGroupClasses + '">' + sInputGroupHtml + '</div>');
+        });
 
+        $(document).on('click', 'div.member div.member-email .remove-member', function () {
+            $(this).parent().parent().parent().remove();
+        });
+    });
+
+</script>
 </body>
 </html>

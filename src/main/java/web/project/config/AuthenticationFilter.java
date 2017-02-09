@@ -17,10 +17,6 @@ public class AuthenticationFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
-
-//        System.out.println("Request: " + httpServletRequest.getRequestURI());
-//        System.out.println("Authenticated : " + isAuthenticated(httpServletRequest));
-
         if (resourceRequest(httpServletRequest)) {
             filterChain.doFilter(httpServletRequest, httpServletResponse);
         } else {

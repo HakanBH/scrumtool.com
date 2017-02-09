@@ -12,4 +12,6 @@ public interface ProjectService {
     List<Project> userProjects(User user);
 
     Project findById(Integer id);
+
+    boolean isMember(User user, Integer projectId);
 }

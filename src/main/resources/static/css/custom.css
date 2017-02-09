@@ -1,15 +1,107 @@
+#close {
+    float: right;
+    cursor: pointer;
+}
+
+#new-issue-popup {
+    opacity: 0.92;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+}
+
+#new-issue {
+    width: 500px;
+    margin: 0px;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    margin-left: -210px;
+    margin-top: -255px;
+}
+
 html, body, .custom-container {
     height: 100%;
 }
 
+.panel-table .panel-body {
+    padding: 0;
+}
+
+.panel-table .panel-body .table-bordered {
+    border-style: none;
+    margin: 0;
+}
+
+.panel-table .panel-body .table-bordered > thead > tr > th:first-of-type {
+    text-align: center;
+    width: 100px;
+}
+
+.panel-table .panel-body .table-bordered > thead > tr > th:last-of-type,
+.panel-table .panel-body .table-bordered > tbody > tr > td:last-of-type {
+    border-right: 0px;
+}
+
+.panel-table .panel-body .table-bordered > thead > tr > th:first-of-type,
+.panel-table .panel-body .table-bordered > tbody > tr > td:first-of-type {
+    border-left: 0px;
+}
+
+.panel-table .panel-body .table-bordered > tbody > tr:first-of-type > td {
+    border-bottom: 0px;
+}
+
+.panel-table .panel-body .table-bordered > thead > tr:first-of-type > th {
+    border-top: 0px;
+}
+
+.panel-table .panel-footer .pagination {
+    margin: 0;
+}
+
+/*
+used to vertically center elements, may need modification if you're not using default sizes.
+*/
+.panel-table .panel-footer .col {
+    line-height: 34px;
+    height: 34px;
+}
+
+.panel-table .panel-heading .col h3 {
+    line-height: 30px;
+    height: 30px;
+}
+
+.panel-table .panel-body .table-bordered > tbody > tr > td {
+    line-height: 34px;
+}
+
 .main-container {
-    padding-left: 30px;
+    padding-left: 15px;
+    padding-right: 50px;
 }
 
 .project-title {
     margin-top: 30px;
     font-size: 17px;
     color: #696969;
+}
+
+.no-projects {
+    margin-top: 15%;
+    color: #ababab;
+    text-align: center;
 }
 
 /*
@@ -29,7 +121,7 @@ div.member-email span.remove-member {
 
 .custom-container {
     width: 100%;
-    margin-top: -50px;
+    margin-top: 0px;
     padding: 50px 0 0 0; /*set left/right padding according to needs*/
     box-sizing: border-box;
 }
@@ -41,8 +133,6 @@ div.member-email span.remove-member {
 .custom-border {
     margin-top: 0px;
     margin-bottom: 0px;
-    border-right: 0px;
-    border-left: 0px;
     border-top: 20px solid #e1e1e1;
     border-bottom: 1px solid #b0b0b0;
 }
@@ -62,6 +152,8 @@ div.member-email span.remove-member {
 }
 
 .scrumtool-nav {
+    position: fixed;
+    width: 100%;
     margin-bottom: 0px;
     background-color: rgb(0, 166, 153);
     border-bottom: 4px solid rgb(0, 98, 90);

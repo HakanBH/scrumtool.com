@@ -7,11 +7,6 @@
             <div class="col-md-6">
                 <h3>Create New Project</h3>
             </div>
-            <div class="col-md-4" style="padding-top:15px">
-                <input type="submit" name="Create" value="Create" style="width:100%" class="btn my-btn btn-info"
-                       id="create-project-button"/>
-            </div>
-            <div class="col-md-offset-2"></div>
         </div>
         <hr/>
         <div class="row form-group">
@@ -19,7 +14,7 @@
                 <label for="project-name" class="control-label"> Name* </label>
             </div>
             <div class="col-md-7">
-                <input class="form-control" id="project-name" th:field="*{name}" maxlength="50"
+                <input class="form-control" id="project-name" th:field="*{name}" maxlength="50" required="required"
                        name="project-name" placeholder="Enter project name" type="text"/>
             </div>
         </div>
@@ -28,7 +23,7 @@
                 <label for="project-description" class="control-label">Description*</label>
             </div>
             <div class="col-md-7">
-                <textarea class="form-control" id="project-description" th:field="*{description}"
+                <textarea class="form-control" id="project-description" th:field="*{description}" required="required"
                           form="create-project" placeholder="Describe the project in a few lines."></textarea>
             </div>
         </div>
@@ -40,7 +35,8 @@
                 <div class="input-group registration-date-time">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"
                                                           aria-hidden="true"></span></span>
-                    <input class="form-control" th:field="*{startDate}" id="start-date" type="date"/>
+                    <input class="form-control" required="required" th:field="*{startDate}" id="start-date"
+                           type="date"/>
                 </div>
             </div>
         </div>
@@ -52,7 +48,8 @@
                 <div class="input-group registration-date-time">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"
                                                           aria-hidden="true"></span></span>
-                    <input class="form-control" th:field="*{endDate}" id="end-date" type="date"/>
+                    <input class="form-control" th:field="*{endDate}" id="end-date" type="date"
+                           required="required"/>
                 </div>
             </div>
         </div>
@@ -64,8 +61,17 @@
                 <div class="input-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-time"
                                                           aria-hidden="true"></span></span>
-                    <input class="form-control" th:field="*{dailyMeetings}" id="dailyMeetings" type="time"/>
+                    <input class="form-control" th:field="*{dailyMeetings}" id="dailyMeetings" type="time"
+                           required="required"/>
                 </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-3">
+                <label for="code" class="control-label">Project Code: </label>
+            </div>
+            <div class="col-md-7">
+                <input class="form-control" maxlength="8" th:field="*{code}" id="code" type="text" required="required"/>
             </div>
         </div>
         <h4> Project Members </h4>
@@ -73,7 +79,6 @@
         <div class="row" style="margin-bottom:15px">
             <div class="col-md-5" style="font-weight: bold">Member</div>
             <div class="col-md-5" style="font-weight: bold">Role</div>
-            <div class="col-md-offset-2"></div>
         </div>
         <div class="members">
             <div class="row member">
@@ -96,6 +101,10 @@
                 </div>
                 <div class="col-md-offset-2"></div>
             </div>
+        </div>
+        <div class="row col-md-4" style="padding-top:15px; margin-bottom:30px">
+            <input type="submit" name="Create" value="Create" style="width:100%" class="btn my-btn btn-info"
+                   id="create-project-button"/>
         </div>
     </form>
 </div>

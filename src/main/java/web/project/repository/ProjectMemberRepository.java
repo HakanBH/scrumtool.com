@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface ProjectMemberRepository extends CrudRepository<ProjectMember, Integer>{
     List<ProjectMember> findByUserId(Integer userId);
+
+    ProjectMember findByUserIdAndProjectId(Integer userId, Integer projectId);
 }

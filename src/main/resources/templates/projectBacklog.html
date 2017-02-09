@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ScrumTool.com</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="/css/bootstrap.css" rel="stylesheet"/>
+    <link href="/css/custom.css" rel="stylesheet"/>
+    <link href="/css/asd.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div th:include="fragments/navbarLogged :: navbarLogged "></div>
+<div class="custom-container">
+    <div id="new-issue-popup">
+        <div class="panel panel-default" id="new-issue">
+            <div class="panel-heading">
+                New Issue
+                <span id="close" class="glyphicon glyphicon-remove"></span>
+            </div>
+            <div class="panel-body">
+                <form class="form" action="#" method="post">
+                    <div class="container-fluid">
+                        <div class="row form-group">
+                            <div class="col-md-4">
+                                <label for="summary"> Summary </label>
+                            </div>
+                            <div class="col-md-8">
+                                <input class="form-control" type="text" id="summary"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-4">
+                                <label for="issue-type"> Issue Type </label>
+                            </div>
+                            <div class="col-md-8">
+                                <select class="form-control" id="issue-type">
+                                    <option>Issue</option>
+                                    <option>Task</option>
+                                    <option>Bug</option>
+                                    <option>Story</option>
+                                    <option>Epic</option>
+                                    <option>Test</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-4 ">
+                                <label for="priority"> Priority</label>
+                            </div>
+                            <div class="col-md-8">
+                                <select class="form-control" id="priority">
+                                    <option>Normal</option>
+                                    <option>Blocker</option>
+                                    <option>Critical</option>
+                                    <option>High</option>
+                                    <option>Minor</option>
+                                    <option>Trivial</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-4">
+                                <label for="story-points"> Story Points </label>
+                            </div>
+                            <div class="col-md-8">
+                                <input class="form-control" id="story-points" type="number"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-4">
+                                <label for="description"> Description </label>
+                            </div>
+                            <div class="col-md-8">
+                                <textarea cols="3" rows="3" class="form-control" id="description"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-offset-6 col-md-6">
+                                <input type="submit" class="btn btn-info"/>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-footer"></div>
+        </div>
+    </div>
+    <hr class="custom-border"/>
+    <div class="new-issue-container">
+    </div>
+    <div class="row" style="display: -webkit-flex; display: flex;">
+        <div class="navigation-col col-md-2 col-lg-2">
+        </div>
+        <div class="main-container col-md-10 col-lg-10">
+            <div th:text="${project.name}" class="project-title"></div>
+            <div class="row" style="margin-bottom:15px">
+                <h3 class="col-md-6">Project Backlog</h3>
+                <hr/>
+            </div>
+
+            <div th:each="sprint, i : ${sprints}">
+                <div class="panel panel-default panel-table">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col col-xs-6">
+                                <h3 class="panel-title">Sprint <span th:text="${sprint.number}"></span></h3>
+                            </div>
+                            <div class="col col-xs-6 text-right">
+                                <button type="button" th:attr="id=${sprint.id}"
+                                        class="onclick btn btn-sm btn-info" style="width:20%;">New
+                                    Issue
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped table-bordered table-list">
+                            <thead>
+                            <tr>
+                                <th>Issue</th>
+                                <th>Summary</th>
+                                <th>Type</th>
+                                <th>Priority</th>
+                                <th>Status</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:if="${#lists.isEmpty(sprint.issues)}">
+                                <td style="text-align:center" colspan="5">This sprint has no issues assigned to
+                                    it.
+                                </td>
+                            </tr>
+                            <tr th:each="issue, j : ${sprint.issues}">
+                                <td th:text="${issue.code}"></td>
+                                <td th:text="${issue.summary}"></td>
+                                <td th:text="${issue.type}"></td>
+                                <td th:text="${issue.priority}"></td>
+                                <td th:text="${issue.status}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="row"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/projects.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/popup.js"></script>
+<script src="/js/projects.js"></script>
+
+</body>
+</html>

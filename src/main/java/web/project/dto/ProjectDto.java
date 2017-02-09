@@ -25,6 +25,9 @@ public class ProjectDto {
     @Length(max = 1000)
     private String description;
 
+    @Length(max = 8)
+    private String code;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date startDate;
 

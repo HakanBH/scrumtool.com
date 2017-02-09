@@ -1,5 +1,6 @@
 package web.project.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,17 +22,24 @@ public class Issue {
     private Integer id;
 
     @Column
-    private String name;
+    private String summary;
 
     @Column
     private String description;
 
     @Column
-    private IssueStatus status;
+    private String status;
 
     @Column
-    private IssueType type;
+    private String type;
+
+    @Column
+    private String priority;
+
+    @Column
+    private String code;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @Getter(onMethod = @__( @JsonIgnore ))
     private Sprint sprint;
 }

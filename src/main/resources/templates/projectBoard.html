@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ScrumTool.com</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="/css/bootstrap.css" rel="stylesheet"/>
+    <link href="/css/custom.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div th:include="fragments/navbarLogged :: navbarLogged "></div>
+<div class="custom-container">
+    <hr class="custom-border"/>
+
+    <div class="row" style="display: -webkit-flex; display: flex;">
+        <div class="navigation-col col-md-2 col-lg-2">
+        </div>
+        <div class="main-container col-md-10 col-lg-10">
+            <div th:text="${project.name}" class="project-title"></div>
+            <div class="row" style="margin-bottom:15px">
+                <h3 class="col-md-6">Project Board</h3>
+                <div class="col-md-offset-3 col-md-3">
+                    <select class="form-control" id="status" style="float: right; margin-top: 10px;">
+                        <option>Active</option>
+                        <option>Complete</option>
+                        <option>Inactive</option>
+                        <option>Blocked</option>
+                    </select>
+                </div>
+                <hr/>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/projects.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ScrumTool.com</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="/css/bootstrap.css" rel="stylesheet"/>
+    <link href="/css/custom.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div th:include="fragments/navbarLogged :: navbarLogged "></div>
+<div class="custom-container">
+    <hr class="custom-border"/>
+    <div class="row" style="height:100%">
+        <div class="navigation-col no-float col-md-2 col-lg-2">
+        </div>
+        <div class="main-container col-md-10 col-lg-10">
+            <h3>New Sprint</h3>
+            <hr/>
+            <form id="createSprintForm">
+                <div class="row" style="margin-bottom:15px">
+                    <div class="col-md-5"><label for="start-date" class="control-label">Starts: </label></div>
+                    <div class="col-md-5"><label for="end-date" class="control-label">Ends: </label></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group registration-date">
+                            <div class="input-group registration-date-time">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"
+                                                          aria-hidden="true"></span></span>
+                                <input required="required" class="form-control" name="start-date" id="start-date"
+                                       type="date"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group registration-date">
+                            <div class="input-group registration-date-time">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"
+                                                          aria-hidden="true"></span></span>
+                                <input required="required" class="form-control" name="end-date" id="end-date"
+                                       type="date"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5" style="padding-top:20px">
+                        <input type="submit" value="Start Sprint" class="btn btn-info"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/projects.js"></script>
+<script src="/js/createSprint.js"></script>
+</body>
+</html>
+
+
+
+

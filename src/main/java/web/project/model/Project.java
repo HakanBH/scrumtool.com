@@ -1,12 +1,12 @@
 package web.project.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import web.project.dto.ProjectDto;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -31,16 +31,18 @@ public class Project {
     private String dailyMeetings;
 
     @Column
+    private String code;
+
+    @Column
     private Date startDate;
 
     @Column
     private Date endDate;
-
     @OneToMany(mappedBy = "project", fetch = FetchType.LAZY)
     private Set<ProjectMember> members;
 
     @OneToMany(mappedBy = "project", fetch = FetchType.LAZY)
-    private Set<Sprint> sprints;
+    private List<Sprint> sprints;
 
     public Project(ProjectDto projectDto) {
         this.name = projectDto.getName();
