@@ -19,6 +19,5 @@ Scrumtool is a website for managing Scrum projects.
 * Create a MySQL user with username "root" and password "mydbpass" (these values can be changed in application.properties)
 * Create a new DB Connection listening on localhost and port 3306 (can also be changed in application.properties)
 * Export the ScrumTool.sql file either with MySQL Workbench or from the command line.
-* Go to the main directory of the project.
-* Run the `mvn spring-boot:run`
+* Run the `mvn spring-boot:run` from the root directory of the project.
 * The application should be available at url `localhost:8080`
