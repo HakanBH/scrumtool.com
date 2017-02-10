@@ -8,7 +8,7 @@ Scrumtool is a website for managing Scrum projects.
 
 ### Environment setup
 
-* Download and install MySQL Server and MySQL Workbench (this is optional, but recommended if you don't have experience with MySQL).
+* Download and install MySQL Server and MySQL Workbench (the later is optional, but recommended if you don't have experience with MySQL).
 
 * You must have [Java Version 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed and the JAVA_HOME & JAVA_PATH environment variables set properly.
 
