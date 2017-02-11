@@ -5,6 +5,7 @@ $("#createSprintForm").submit(function (event) {
     // Get some values from elements on the page:
     var $form = $(this);
     var path = window.location.pathname;
+    var pathVariables = path.split("/");
 
     var data = {
         startDate: $form.find("input[name='start-date']").val(),
@@ -19,7 +20,8 @@ $("#createSprintForm").submit(function (event) {
         contentType: "application/json; charset=utf-8",
         traditional: true,
         success: function (data) {
-            window.location.replace(path + '/' + data.id);
+            var newSprintUrl = "/" + pathVariables[1] + "/" + pathVariables[2] + "/" + pathVariables[3] + "/"+ data.id;
+            window.location.replace(newSprintUrl);
         }
     });
 });

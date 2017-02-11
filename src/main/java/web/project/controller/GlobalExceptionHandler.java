@@ -1,6 +1,5 @@
 package web.project.controller;
 
-import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -12,7 +11,7 @@ import java.sql.SQLException;
 
 
 @ControllerAdvice
-public class GlobalControllerExceptionHandler {
+public class GlobalExceptionHandler {
     public static final String UNEXISTING_RESOURCE_MESSAGE = "Sorry, this page isn't available. \n" +
             "The link you followed may be broken, or the page may have been removed.";
 

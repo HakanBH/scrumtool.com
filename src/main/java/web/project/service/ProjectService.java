@@ -7,7 +7,9 @@ import web.project.model.User;
 import java.util.List;
 
 public interface ProjectService {
-    void createProject(ProjectDto projectDto);
+    Integer getNumberOfIssues(Project project);
+
+    Project create(ProjectDto projectDto);
 
     List<Project> userProjects(User user);
 

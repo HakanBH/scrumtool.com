@@ -2,8 +2,8 @@ package web.project.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import web.project.model.Project;
+import web.project.model.Issue;
 
 @Repository
-public interface ProjectRepository extends CrudRepository<Project, Integer> {
+public interface IssueRepository extends CrudRepository<Issue, Integer>{
 }

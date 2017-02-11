@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.SortComparator;
 import web.project.model.enums.IssueStatus;
 import web.project.model.enums.IssueType;
 
@@ -16,7 +17,7 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Issue {
+public class Issue implements Comparable<Issue>{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -39,7 +40,15 @@ public class Issue {
     @Column
     private String code;
 
+    @Column
+    private Integer storyPoints;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @Getter(onMethod = @__( @JsonIgnore ))
     private Sprint sprint;
+
+    @Override
+    public int compareTo(Issue o) {
+        return this.getCode().compareTo(o.getCode());
+    }
 }

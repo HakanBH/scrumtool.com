@@ -8,7 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "sprints")
@@ -37,9 +37,9 @@ public class Sprint {
     private String status;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Getter(onMethod = @__( @JsonIgnore ))
+    @Getter(onMethod = @__(@JsonIgnore))
     private Project project;
 
     @OneToMany(mappedBy = "sprint", fetch = FetchType.LAZY)
-    private Set<Issue> issues;
+    private List<Issue> issues;
 }

@@ -3,9 +3,7 @@ package web.project.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import web.project.dto.ProjectDto;
-import web.project.model.Project;
-import web.project.model.ProjectMember;
-import web.project.model.User;
+import web.project.model.*;
 import web.project.repository.ProjectMemberRepository;
 import web.project.repository.ProjectRepository;
 import web.project.repository.UserRepository;
@@ -26,7 +24,7 @@ public class ProjectServiceImpl implements ProjectService {
     private ProjectMemberRepository projectMemberRepository;
 
     @Override
-    public void createProject(ProjectDto projectDto) {
+    public Project create(ProjectDto projectDto) {
         Project project = new Project(projectDto);
         String emails = projectDto.getProjectMembers().get(0).getUser();
         String roles = projectDto.getProjectMembers().get(0).getRole();
@@ -47,26 +45,37 @@ public class ProjectServiceImpl implements ProjectService {
         for (ProjectMember pm : projectMembers) {
             projectMemberRepository.save(pm);
         }
+        return project;
     }
 
     public List<Project> userProjects(User user) {
         List<ProjectMember> projectMembers = projectMemberRepository.findByUserId(user.getId());
         List<Project> projects = new ArrayList<>();
-        for(ProjectMember projectMember : projectMembers){
+        for (ProjectMember projectMember : projectMembers) {
             projects.add(projectMember.getProject());
         }
         return projects;
     }
 
-    public Project findById(Integer id){
+    public Project findById(Integer id) {
         return projectRepository.findOne(id);
     }
 
-    public boolean isMember(User user, Integer projectId){
-        if(projectRepository.findOne(projectId) == null){
+    public boolean isMember(User user, Integer projectId) {
+        if (projectRepository.findOne(projectId) == null) {
             throw new IllegalArgumentException();
         } else {
             return projectMemberRepository.findByUserIdAndProjectId(user.getId(), projectId) != null;
         }
+    }
+
+    public Integer getNumberOfIssues(Project project) {
+        int count = 0;
+        for (Sprint sprint : project.getSprints()) {
+            for (Issue issue : sprint.getIssues()) {
+                count++;
+            }
+        }
+        return count;
     }
 }

@@ -1,6 +1,5 @@
 package web.project.controller;
 
-import javafx.collections.transformation.SortedList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -16,7 +15,6 @@ import web.project.service.ProjectService;
 import web.project.service.SprintService;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -37,8 +35,8 @@ public class ProjectController {
 
     @PostMapping("/create")
     public String createProject(@ModelAttribute("projectDto") ProjectDto projectDto) {
-        projectService.createProject(projectDto);
-        return "main";
+        Project project = projectService.create(projectDto);
+        return "redirect:/projects/" + project.getId();
     }
 
     @GetMapping({"/{projectId}", "/{projectId}/backlog"})
@@ -49,7 +47,8 @@ public class ProjectController {
 
         Project project = projectService.findById(projectId);
         List<Sprint> sprints = project.getSprints();
-        Collections.sort(sprints, (o1, o2) -> {return o2.getNumber() - o1.getNumber();
+        Collections.sort(sprints, (o1, o2) -> {
+            return o2.getNumber() - o1.getNumber();
         });
 
         model.addAttribute("project", project);
@@ -82,7 +81,11 @@ public class ProjectController {
         if (!projectService.isMember((User) request.getSession().getAttribute("loggedUser"), projectId)) {
             throw new UnauthorizedException();
         }
-        return sprintService.findAll(projectId);
+        List<Sprint> sprints = sprintService.findAll(projectId);
+        for (Sprint sprint : sprints) {
+            Collections.sort(sprint.getIssues());
+        }
+        return sprints;
     }
 
 
@@ -101,7 +104,10 @@ public class ProjectController {
     }
 
     @GetMapping("{projectId}/sprints/{sprintId}")
-    public String sprintView() {
-        return "sprintView";
+    public String sprintView(Model model, @PathVariable("sprintId") Integer sprintId, @PathVariable("projectId")
+            Integer projectId) {
+        model.addAttribute("sprint", sprintService.findById(sprintId));
+        model.addAttribute("project", projectService.findById(projectId));
+        return "sprintBacklog";
     }
 }

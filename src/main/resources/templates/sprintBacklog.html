@@ -93,83 +93,79 @@
         <div class="main-container col-md-10 col-lg-10">
             <div th:text="${project.name}" class="project-title"></div>
             <div class="row" style="margin-bottom:15px">
-                <h3 class="col-md-6">Project Backlog</h3>
+                <h3 class="col-md-6">Sprint Backlog</h3>
             </div>
             <hr/>
-            <div th:if="${sprints.isEmpty()}" style="text-align:center; color: #ccc; margin-top:13%">
-                <h1>This project is still empty.</h1>
-                <h3>You need to start a sprint before adding tasks.</h3>
-            </div>
-            <div th:each="sprint, i : ${sprints}">
-                <div class="panel panel-default panel-table">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col col-xs-6">
-                                <h3 class="panel-title">Sprint <span th:text="${sprint.number}"></span></h3>
-                            </div>
-                            <div class="col col-xs-6 text-right">
-                                <button type="button" th:attr="id=${sprint.id}"
-                                        class="onclick btn btn-sm btn-info" style="width:20%;">New
-                                    Issue
-                                </button>
-                            </div>
+            <div class="panel panel-default panel-table">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col col-xs-6">
+                            <h3 class="panel-title">Sprint <span th:text="${sprint.number}"></span></h3>
+                        </div>
+                        <div class="col col-xs-6 text-right">
+                            <button type="button" th:attr="id=${sprint.id}"
+                                    class="onclick btn btn-sm btn-info" style="width:20%;">New
+                                Issue
+                            </button>
                         </div>
                     </div>
-                    <div class="panel-body">
-                        <table class="table table-striped table-bordered table-list">
-                            <thead>
-                            <tr>
-                                <th>Issue</th>
-                                <th>Summary</th>
-                                <th style="width:15%">Type</th>
-                                <th style="width:15%">Priority</th>
-                                <th style="width:15%">Status</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr th:if="${#lists.isEmpty(sprint.issues)}">
-                                <td style="text-align:center" colspan="5">This sprint has no issues assigned to
-                                    it.
-                                </td>
-                            </tr>
-                            <tr th:each="issue, j : ${sprint.issues}">
-                                <td th:text="${issue.code}"></td>
-                                <td th:text="${issue.summary}"></td>
-                                <td th:text="${issue.type}"></td>
-                                <td>
-                                    <select th:attr="id=${issue.id}" class="issue-priority form-control">
-                                        <option value="blocker">Blocker</option>
-                                        <option value="critical">Critical</option>
-                                        <option value="high">High</option>
-                                        <option value="normal">Normal</option>
-                                        <option value="trivial">Trivial</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <select th:attr="id=${issue.id}" class="issue-status form-control">
-                                        <option value="todo">To Do</option>
-                                        <option value="blocked">Blocked</option>
-                                        <option value="in-progress">In Progress</option>
-                                        <option value="done">Done</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="panel-footer">
-                        <div class="row"></div>
-                    </div>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-striped table-bordered table-list">
+                        <thead>
+                        <tr>
+                            <th>Issue</th>
+                            <th>Summary</th>
+                            <th style="width:15%">Type</th>
+                            <th style="width:15%">Priority</th>
+                            <th style="width:15%">Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:if="${#lists.isEmpty(sprint.issues)}">
+                            <td style="text-align:center" colspan="5">This sprint has no issues assigned to
+                                it.
+                            </td>
+                        </tr>
+                        <tr th:each="issue, j : ${sprint.issues}">
+                            <td th:text="${issue.code}"></td>
+                            <td th:text="${issue.summary}"></td>
+                            <td th:text="${issue.type}"></td>
+                            <td>
+                                <select th:attr="id=${issue.id}" class="issue-priority form-control">
+                                    <option value="blocker">Blocker</option>
+                                    <option value="critical">Critical</option>
+                                    <option value="high">High</option>
+                                    <option value="normal">Normal</option>
+                                    <option value="trivial">Trivial</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select th:attr="id=${issue.id}" class="issue-status form-control">
+                                    <option value="todo">To Do</option>
+                                    <option value="blocked">Blocked</option>
+                                    <option value="in-progress">In Progress</option>
+                                    <option value="done">Done</option>
+                                </select>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="panel-footer">
+                    <div class="row"></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script src="/js/projects.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="/js/bootstrap.js"></script>
 <script src="/js/main.js"></script>
 <script src="/js/projectBacklog.js"></script>
+<script src="/js/projects.js"></script>
 
 </body>
 </html>

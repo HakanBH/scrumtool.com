@@ -6,6 +6,7 @@ import web.project.model.Sprint;
 import java.util.List;
 
 public interface SprintService {
+    Sprint findById(Integer sprintId);
 
     List<Sprint> findAll(Integer projectId);
 

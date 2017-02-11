@@ -34,4 +34,8 @@ public class SprintServiceImpl implements SprintService {
                 "Inactive", project, null);
         return sprintRepository.save(sprint);
     }
+
+    public Sprint findById(Integer sprintId){
+        return sprintRepository.findOne(sprintId);
+    }
 }

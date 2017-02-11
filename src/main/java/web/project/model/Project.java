@@ -46,6 +46,7 @@ public class Project {
 
     public Project(ProjectDto projectDto) {
         this.name = projectDto.getName();
+        this.code = projectDto.getCode();
         this.description = projectDto.getDescription();
         this.dailyMeetings = projectDto.getDailyMeetings();
         this.startDate = projectDto.getStartDate();

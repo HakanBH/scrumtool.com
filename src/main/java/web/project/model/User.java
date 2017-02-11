@@ -35,7 +35,6 @@ public class User {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private Set<ProjectMember> projects;
 
-
     public User(RegistrationDto registrationDto) {
         this.email = registrationDto.getEmail();
         this.firstName = registrationDto.getFirstName();
