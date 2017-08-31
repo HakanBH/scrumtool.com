@@ -2,7 +2,7 @@ package web.project.model;
 
 import lombok.*;
 import org.hibernate.validator.constraints.Email;
-import web.project.dto.RegistrationDto;
+import web.project.model.dto.RegistrationDto;
 
 import javax.persistence.*;
 import java.util.Set;

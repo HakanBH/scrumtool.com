@@ -2,7 +2,7 @@ package web.project.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
-import web.project.dto.ProjectDto;
+import web.project.model.dto.ProjectDto;
 
 import javax.persistence.*;
 import java.util.Date;

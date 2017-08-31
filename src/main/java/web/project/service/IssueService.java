@@ -1,6 +1,6 @@
 package web.project.service;
 
-import web.project.dto.IssueDto;
+import web.project.model.dto.IssueDto;
 
 public interface IssueService {
     void save(IssueDto issueDto, Integer sprintId);

@@ -1,6 +1,5 @@
-package web.project.dto;
+package web.project.model.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 

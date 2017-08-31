@@ -5,9 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.SortComparator;
-import web.project.model.enums.IssueStatus;
-import web.project.model.enums.IssueType;
 
 import javax.persistence.*;
 

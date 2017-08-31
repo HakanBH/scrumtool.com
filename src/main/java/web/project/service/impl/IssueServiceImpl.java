@@ -2,7 +2,7 @@ package web.project.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import web.project.dto.IssueDto;
+import web.project.model.dto.IssueDto;
 import web.project.model.Issue;
 import web.project.model.Project;
 import web.project.model.Sprint;

@@ -108,9 +108,9 @@ $(document).ready(function () {
             url: url,
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
-            success: function (data) {
-                window.location.replace(path);
-            }
+            // success: function (data) {
+            //     window.location.replace(path);
+            // }
         });
     });
 
@@ -128,9 +128,9 @@ $(document).ready(function () {
             url: url,
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
-            success: function (data) {
-                window.location.replace(path);
-            }
+            // success: function (data) {
+            //     window.location.replace(path);
+            // }
         });
     });
 

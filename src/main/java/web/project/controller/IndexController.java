@@ -2,8 +2,8 @@ package web.project.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import web.project.dto.LoginDto;
-import web.project.dto.RegistrationDto;
+import web.project.model.dto.LoginDto;
+import web.project.model.dto.RegistrationDto;
 
 import javax.servlet.http.HttpServletRequest;
 

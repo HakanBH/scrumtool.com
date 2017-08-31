@@ -1,17 +1,15 @@
 package web.project.model.enums;
 
-public enum IssueType {
-    ISSUE(0),
-    BUG(1),
-    EPIC(2),
-    STORY(3),
-    REVIEW(4),
-    TEST(5),
-    TASK(6);
+public enum MemberRole {
+    OWNER(0),
+    SCRUM_MASTER(1),
+    DEVELOPER(2),
+    DEV_OPS(3),
+    TESTER(4);
 
     private final int value;
 
-    private IssueType(int value) {
+    private MemberRole(int value) {
         this.value = value;
     }
 

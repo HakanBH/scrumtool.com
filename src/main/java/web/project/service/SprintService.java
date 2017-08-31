@@ -1,6 +1,6 @@
 package web.project.service;
 
-import web.project.dto.SprintDto;
+import web.project.model.dto.SprintDto;
 import web.project.model.Sprint;
 
 import java.util.List;

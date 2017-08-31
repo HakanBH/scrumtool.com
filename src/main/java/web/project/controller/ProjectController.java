@@ -5,12 +5,12 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import web.project.dto.ProjectDto;
-import web.project.dto.SprintDto;
 import web.project.exception.UnauthorizedException;
 import web.project.model.Project;
 import web.project.model.Sprint;
 import web.project.model.User;
+import web.project.model.dto.ProjectDto;
+import web.project.model.dto.SprintDto;
 import web.project.service.ProjectService;
 import web.project.service.SprintService;
 
@@ -34,8 +34,8 @@ public class ProjectController {
     }
 
     @PostMapping("/create")
-    public String createProject(@ModelAttribute("projectDto") ProjectDto projectDto) {
-        Project project = projectService.create(projectDto);
+    public String createProject(@ModelAttribute("projectDto") ProjectDto projectDto, HttpServletRequest request) {
+        Project project = projectService.create(projectDto, request);
         return "redirect:/projects/" + project.getId();
     }
 

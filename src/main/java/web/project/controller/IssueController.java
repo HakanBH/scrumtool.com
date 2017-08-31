@@ -2,7 +2,7 @@ package web.project.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import web.project.dto.IssueDto;
+import web.project.model.dto.IssueDto;
 import web.project.service.IssueService;
 
 @RestController
